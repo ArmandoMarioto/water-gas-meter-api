@@ -68,8 +68,8 @@ Request Body:
 GET /<customer code>/list
 Endpoint para listar as medidas realizadas por um determinado cliente.
 
-URL: http://localhost:80/<customer code>/list
-Exemplo:http://localhost:80/<customer code>/list?measure_type=WATER
+URL: http://localhost:80/customer_code/list
+Exemplo:http://localhost:80/customer_code/list?measure_type=WATER
 
 
 
