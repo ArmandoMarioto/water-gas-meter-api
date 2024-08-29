@@ -1,4 +1,4 @@
-# Nome do Projeto
+# Water-Gas-Meter
 
 Descrição breve do projeto.
 
@@ -21,7 +21,7 @@ Após gerar a chave da API, você precisará criar um arquivo `.env` na raiz do 
 ```properties
 GEMINI_API_KEY=YOUR_API_KEY
 
-
+```
 ### 3. Executar o projeto com Docker
 Para iniciar o projeto usando Docker, siga os passos abaixo:
 
@@ -30,10 +30,11 @@ Na raiz do projeto, execute o seguinte comando para iniciar os contêineres Dock
 O Docker irá baixar as imagens necessárias (se ainda não estiverem em cache) e iniciar os contêineres definidos no arquivo docker-compose.yml.
 
 Após a inicialização, o projeto estará disponível no endereço especificado (http://localhost:80).
-```
+
 
 Uso
 Endpoints
+
 POST /upload
 Endpoint para fazer upload de uma imagem.
 
@@ -46,6 +47,10 @@ Request Body:
 "measure_datetime": "datetime",
 "measure_type": "WATER" ou "GAS"
 }
+
+
+
+
 PATCH /confirm
 Endpoint para confirmar o valor de uma medida.
 
@@ -56,11 +61,18 @@ Request Body:
 "measure_uuid": "d53d2e6d-17f1-4eac-a212-3544b3046ec5",
 "confirmed_value": "12342414"
 }
+
+
+
+
 GET /<customer code>/list
 Endpoint para listar as medidas realizadas por um determinado cliente.
 
 URL: http://localhost:80/<customer code>/list
 Exemplo:http://localhost:80/<customer code>/list?measure_type=WATER
+
+
+
 Query Parameters:
 
 measure_type (opcional): Deve ser "WATER" ou "GAS". A validação é case insensitive. Se o parâmetro for informado, filtrar apenas os valores do tipo especificado. Senão, retornar todos os tipos.
