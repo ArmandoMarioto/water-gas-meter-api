@@ -37,9 +37,10 @@ export class MeasureService {
         }
         const customer =
             await this.customerService.createOrFindCustomer(customer_code)
+        const dataname = new Date().toISOString().replace(/:/g, '-')
         const savedImage = await this.imagensService.saveBase64Image(
             image,
-            `image${customer_code}${measure_type}.jpg`
+            `${dataname}-${customer_code}-${measure_type}.jpg`
         )
         const fileName = fileToGenerativePart(image)
         const result = await this.geminiService.generateContent(

@@ -3,7 +3,7 @@ import { ImageRepository } from '../repositories/images.repositories'
 
 @Injectable()
 export class ImageService {
-    private readonly baseUrl = 'http://localhost:3000/images'
+    private readonly baseUrl = 'http://localhost:80/images'
 
     constructor(private readonly imageRepo: ImageRepository) {}
 

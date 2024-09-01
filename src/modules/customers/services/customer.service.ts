@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, InternalServerErrorException } from '@nestjs/common'
 import { CustomerRepository } from '../repositories/customer.repositories'
 import { CustomerResponse } from '../response/customer-response'
 
@@ -19,7 +19,9 @@ export class CustomerService {
                 data: { customerCode: customerCode },
             })
         } catch (error) {
-            throw new Error('Failed to create customer' + error)
+            throw new InternalServerErrorException(
+                'Failed to create customer' + error
+            )
         }
     }
     async getCustomerByCode(customerCode: string): Promise<CustomerResponse> {
@@ -28,7 +30,9 @@ export class CustomerService {
                 where: { customerCode: customerCode },
             })
         } catch (error) {
-            throw new Error('Failed to get customer' + error)
+            throw new InternalServerErrorException(
+                'Failed to get customer' + error
+            )
         }
     }
 }

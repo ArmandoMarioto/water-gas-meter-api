@@ -10,6 +10,6 @@ async function bootstrap() {
     app.use(bodyParser.json({ limit: '10mb' })) // Altere '10mb' para o limite desejado
     app.use(bodyParser.urlencoded({ limit: '10mb', extended: true })) // Se você também está lidando com dados URL-encoded
 
-    await app.listen(3000)
+    await app.listen(80)
 }
 bootstrap()

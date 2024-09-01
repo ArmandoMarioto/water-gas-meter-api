@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from '@google/generative-ai'
-import { Injectable } from '@nestjs/common'
+import { Injectable, InternalServerErrorException } from '@nestjs/common'
 
 @Injectable()
 export class GeminiService {
@@ -23,7 +23,9 @@ export class GeminiService {
 
             return generatedContent.response.text()
         } catch (error) {
-            throw new Error(`Failed to generate content, error: ${error}`)
+            throw new InternalServerErrorException(
+                `Failed to generate content, error: ${error}`
+            )
         }
     }
 }
