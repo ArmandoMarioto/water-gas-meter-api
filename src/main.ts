@@ -2,7 +2,7 @@ import { ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import * as bodyParser from 'body-parser'
 import { AppModule } from './app.module'
-import { CustomBadRequestExceptionFilter } from './utils'
+import { CustomBadRequestExceptionFilter } from './common'
 async function bootstrap() {
     const app = await NestFactory.create(AppModule)
     app.useGlobalPipes(new ValidationPipe())

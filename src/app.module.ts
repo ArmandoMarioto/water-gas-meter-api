@@ -1,28 +1,9 @@
-import {
-    ConfirmController,
-    CustomerController,
-    UploadController,
-} from '@controllers/index'
 import { Module } from '@nestjs/common'
-import {
-    AppService,
-    CustomerService,
-    GeminiService,
-    ImageService,
-    MeasureService,
-    PrismaService,
-} from '@services/index'
+import { DatabaseModule } from './database/database.module'
+import { MeasureModule } from './modules/measures/measure.module'
+import { ImagensModule } from './modules/imagens/imagens.module'
 
 @Module({
-    imports: [],
-    controllers: [UploadController, ConfirmController, CustomerController],
-    providers: [
-        AppService,
-        GeminiService,
-        ImageService,
-        CustomerService,
-        PrismaService,
-        MeasureService,
-    ],
+    imports: [DatabaseModule, MeasureModule, ImagensModule],
 })
 export class AppModule {}

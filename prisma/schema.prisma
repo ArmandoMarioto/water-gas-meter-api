@@ -16,28 +16,40 @@ datasource db {
 model Customer {
   id           String    @id @default(uuid())
   customerCode String
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  deletedAt    DateTime?
   measures     Measure[]
+
+  @@map("customers")
 }
 
 model Measure {
-  id              String   @id @default(uuid())
-  measureUuid     String   @unique
+  id              String    @id @default(uuid())
   measureDatetime DateTime
   measureType     String
+  measureValue    Float
   hasConfirmed    Boolean
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  deletedAt       DateTime?
   imageId         String
-  image           Image    @relation(fields: [imageId], references: [id])
+  image           Image     @relation(fields: [imageId], references: [id])
   customerId      String
-  customer        Customer @relation(fields: [customerId], references: [id])
+  customer        Customer  @relation(fields: [customerId], references: [id])
+
+  @@map("measures")
 }
 
 model Image {
   id        String    @id @default(uuid())
-  fileName  String
+  fileName  String    @unique
   data      Bytes
-  filePath  String
-  url       String
+  url       String    @unique
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
   Measure   Measure[]
+
+  @@map("images")
 }

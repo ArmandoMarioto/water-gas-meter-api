@@ -1,6 +1,0 @@
-export * from './app.service'
-export * from './customer/index'
-export * from './gemini/index'
-export * from './imagens/index'
-export * from './measure/index'
-export * from './prisma.service'

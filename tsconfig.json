@@ -19,10 +19,8 @@
         "noFallthroughCasesInSwitch": false,
         "paths": {
             "@/*": ["src/*"],
-            "@controllers*": ["src/controllers/*"],
-            "@DTOs*": ["src/DTOs/*"],
-            "@services*": ["src/services/*"],
-            "@utils*": ["src/utils/*"]
+            "@common*": ["src/common/*"],
+            "@modules*": ["src/modules/*"]
         }
     },
     "exclude": ["node_modules", "dist"]
